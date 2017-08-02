@@ -1,13 +1,11 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: sledg
- * Date: 8/2/2017
- * Time: 1:08 PM
+ * @package   JTypeHints
+ * @copyright Copyright (c) 2017 Nicholas K. Dionysopoulos
+ * @license   GNU General Public License version 2 or later; see LICENSE.txt
  */
 
 namespace Akeeba\JTypeHints;
-
 
 use PhpParser\Error;
 use PhpParser\ParserFactory;
@@ -15,18 +13,33 @@ use RuntimeException;
 
 class Parser
 {
+	/**
+	 * The raw content of the classmap.php file from the Joomla! distribution
+	 *
+	 * @var   string
+	 */
 	private $content = '';
 
+	/**
+	 * Extracted map of old class => namespaced class
+	 *
+	 * @var   array
+	 */
 	private $map = [];
 
-	private $maxVersion = [];
+	/**
+	 * Extracted map of old class => version where it is removed from Joomla!
+	 *
+	 * @var   array
+	 */
+	private $obsolescenceVersionMap = [];
 
 	/**
 	 * Create an instance from the content of a PHP file
 	 *
 	 * @param   string  $content
 	 *
-	 * @return  Parser
+	 * @return  self
 	 */
 	public static function fromContent(string $content): self
 	{
@@ -38,7 +51,7 @@ class Parser
 	 *
 	 * @param   string  $file
 	 *
-	 * @return  Parser
+	 * @return  self
 	 */
 	public static function fromFile($file): self
 	{
@@ -92,9 +105,9 @@ class Parser
 	 */
 	public function reset(): self
 	{
-		$this->rawContent = '';
-		$this->map        = [];
-		$this->maxVersion = [];
+		$this->rawContent             = '';
+		$this->map                    = [];
+		$this->obsolescenceVersionMap = [];
 
 		return $this;
 	}
@@ -106,8 +119,8 @@ class Parser
 	 */
 	public function parse(): self
 	{
-		$this->map        = [];
-		$this->maxVersion = [];
+		$this->map                    = [];
+		$this->obsolescenceVersionMap = [];
 
 		$content = str_replace("\r", "\n", $this->content);
 		$lines   = explode("\n", $content);
@@ -145,8 +158,8 @@ class Parser
 				$entry['version'] = '4.0';
 			}
 
-			$this->map[$entry['alias']] = $entry['original'];
-			$this->maxVersion[$entry['alias']] = $entry['version'];
+			$this->map[$entry['alias']]                    = $entry['original'];
+			$this->obsolescenceVersionMap[$entry['alias']] = $entry['version'];
 		}
 
 		return $this;
@@ -169,7 +182,7 @@ class Parser
 	 */
 	public function getMaxVersionMap(): array
 	{
-		return $this->maxVersion;
+		return $this->obsolescenceVersionMap;
 	}
 
 	/**
@@ -184,7 +197,7 @@ class Parser
 	{
 		$ret  = [];
 
-		foreach ($this->maxVersion as $class => $maxVersion)
+		foreach ($this->obsolescenceVersionMap as $class => $maxVersion)
 		{
 			if (version_compare($version, $maxVersion, 'ge'))
 			{

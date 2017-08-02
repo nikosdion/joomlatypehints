@@ -17,10 +17,10 @@ require_once 'version.php';
 
 $app = new Silly\Application('TypeHint Helper for Joomla!', JTHH_VERSION);
 
-$app->command('generate folder [--for-version=] [--for-site=]', function ($folder, $forVersion, $forSite, OutputInterface $output) {
+$app->command('generate [folder] [--for-version=] [--for-site=]', function ($folder, $forVersion, $forSite, OutputInterface $output) {
 	if (empty($folder))
 	{
-		throw new RuntimeException("You must provide an output folder");
+		$folder = __DIR__ . '/generated_hints';
 	}
 
 	$parser = null;
@@ -55,7 +55,7 @@ $app->command('generate folder [--for-version=] [--for-site=]', function ($folde
 })->descriptions(
 	'Generates type hints for a specific Joomla! version or installed site',
 	[
-		'folder' => 'Where do you want the typehint class files to be stored',
+		'folder' => 'Where do you want the typehint class files to be stored. Default: generated_hints',
 		'--for-version' => 'Joomla! version number for which to generate the typehints',
 		'--for-site' => 'Path to a Joomla! installation for which to generate the typehints'
 	]

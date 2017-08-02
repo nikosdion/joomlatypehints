@@ -8,6 +8,7 @@
 namespace Akeeba\JTypeHints\Engine;
 
 use GuzzleHttp\Client;
+use GuzzleHttp\MessageFormatter;
 use GuzzleHttp\RequestOptions;
 
 class Classmap
@@ -77,12 +78,26 @@ class Classmap
 			return $filePath;
 		}
 
-		// Download and save
-		$url    = "https://github.com/joomla/joomla-cms/releases/download/$version/Joomla_$version-Stable-Full_Package.zip";
+		// URL for Joomla! 3.4.0 and later (using GitHub releases)
+		$url = "https://github.com/joomla/joomla-cms/releases/download/$version/Joomla_$version-Stable-Full_Package.zip";
+		// Previous Joomla! versions used the now defunct JoomlaCode. We can still download the branch's archive as a ZIP though.
+		$altUrl = "https://github.com/joomla/joomla-cms/archive/$version.zip";
+
 		$client = new Client();
 		$res    = $client->request('GET', $url, [
 			RequestOptions::ALLOW_REDIRECTS => true,
+			RequestOptions::HTTP_ERRORS     => false,
 		]);
+
+		$statusCode = $res->getStatusCode();
+
+		if (($statusCode >= 400) && ($statusCode < 500))
+		{
+			$res = $client->request('GET', $altUrl, [
+				RequestOptions::ALLOW_REDIRECTS => true,
+				RequestOptions::HTTP_ERRORS     => true,
+			]);
+		}
 
 		file_put_contents($filePath, $res->getBody());
 

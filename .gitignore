@@ -24,4 +24,4 @@ vendor
 
 ## Temporary / generated folders
 
-generated_hints
+generated_hints/*.php

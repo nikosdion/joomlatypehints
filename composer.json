@@ -14,5 +14,10 @@
     "guzzlehttp/guzzle": "^6.3.0",
     "nikic/PHP-Parser": "^4.0@dev",
     "mnapoli/silly": "^1.6"
+  },
+  "autoload": {
+    "psr-4": {
+      "Akeeba\\JTypeHints\\": "JTypeHints"
+    }
   }
 }

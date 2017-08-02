@@ -83,7 +83,11 @@ class Classmap
 		// Previous Joomla! versions used the now defunct JoomlaCode. We can still download the branch's archive as a ZIP though.
 		$altUrl = "https://github.com/joomla/joomla-cms/archive/$version.zip";
 
-		$client = new Client();
+		$client = new Client([
+			// TODO Why the heck does this cause an error on Windows?!!
+			//'verify' => __DIR__ . '/cacert.pem.txt',
+			'verify' => false,
+		]);
 		$res    = $client->request('GET', $url, [
 			RequestOptions::ALLOW_REDIRECTS => true,
 			RequestOptions::HTTP_ERRORS     => false,

@@ -6,7 +6,8 @@
   "authors": [
     {
       "name": "Nicholas K. Dionysopoulos",
-      "email": "nicholas+dontspammeplease@dionysopoulos.me"
+      "email": "nicholas+dontspammeplease@dionysopoulos.me",
+      "homepage": "https://www.dionysopoulos.me"
     }
   ],
   "require": {

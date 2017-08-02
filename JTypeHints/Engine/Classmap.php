@@ -119,18 +119,44 @@ class Classmap
 	{
 		$zip = new \ZipArchive();
 
-		if ($zip->open($zipFilename) !== true)
+		$amIOpen = $zip->open($zipFilename);
+
+		if ($amIOpen !== true)
 		{
 			throw new \RuntimeException("Cannot open ZIP file $zipFilename");
 		}
 
-		$pathInZip = 'libraries/classmap.php';
+		// GitHub ZIP files have a bloody folder prepended to them. I'll have to find it.
+		$foundIndex = false;
+		$prefix     = '';
+
+		for ($i = 0; $i < $zip->numFiles; $i++)
+		{
+			$name = $zip->getNameIndex($i);
+
+			if ($name == 'index.php')
+			{
+				$foundIndex = true;
+
+				break;
+			}
+		}
+
+		if (!$foundIndex)
+		{
+			$name   = $zip->getNameIndex(1);
+			$prefix = dirname($name) . '/';
+		}
+
+		$pathInZip = $prefix . 'libraries/classmap.php';
 		$fileData  = $zip->getFromName($pathInZip);
 
 		if ($fileData === false)
 		{
 			throw new \RuntimeException("Cannot find file $pathInZip in ZIP file $zipFilename");
 		}
+
+		$zip->close();
 
 		return $fileData;
 	}

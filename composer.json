@@ -1,0 +1,15 @@
+{
+  "name": "nikosdion/joomla_typehints",
+  "description": "Manage typehints for deprecated, non-namespaced Joomla! core API classes",
+  "minimum-stability": "stable",
+  "license": "GPL-3.0+",
+  "authors": [
+    {
+      "name": "Nicholas K. Dionysopoulos",
+      "email": "nicholas+dontspammeplease@dionysopoulos.me"
+    }
+  ],
+  "require": {
+    "php": "^7.0"
+  }
+}

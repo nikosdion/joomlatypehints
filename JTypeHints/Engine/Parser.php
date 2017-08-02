@@ -128,7 +128,7 @@ class Parser
 
 		foreach ($lines as $line)
 		{
-			if (strip_tags($line, 'JLoader::registerAlias') === false)
+			if (stripos($line, 'JLoader::registerAlias') === false)
 			{
 				continue;
 			}

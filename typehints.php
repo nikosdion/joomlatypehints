@@ -15,7 +15,7 @@ $loader = require_once __DIR__ . '/vendor/autoload.php';
 // Load the version.php file
 require_once 'version.php';
 
-$app = new Silly\Application('Joomla! TypeHints Helper', JTHH_VERSION);
+$app = new Silly\Application('TypeHint Helper for Joomla!', JTHH_VERSION);
 
 $app->command('generate folder [--for-version=] [--for-site=]', function ($folder, $forVersion, $forSite, OutputInterface $output) {
 	if (empty($folder))

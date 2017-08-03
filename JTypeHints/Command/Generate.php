@@ -18,7 +18,7 @@ class Generate
 	{
 		if (empty($folder))
 		{
-			$folder = __DIR__ . '/generated_hints';
+			$folder = __DIR__ . '/../../generated_hints';
 		}
 
 		$parser = null;

@@ -22,6 +22,7 @@
 
 vendor
 
-## Temporary / generated folders
+## Temporary folders and generated files
 
 generated_hints/*.php
+classmapstats.json

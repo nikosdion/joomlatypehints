@@ -5,6 +5,7 @@
  * @license   GNU General Public License version 2 or later; see LICENSE.txt
  */
 
+use Akeeba\JTypeHints\Command\Collect;
 use Akeeba\JTypeHints\Command\Generate;
 
 // Has the user run composer install already?
@@ -33,6 +34,14 @@ $app
 			'folder'        => 'Where do you want the typehint class files to be stored. Default: generated_hints',
 			'--for-version' => 'Joomla! version number for which to generate the typehints',
 			'--for-site'    => 'Path to a Joomla! installation for which to generate the typehints',
+		]
+	);
+$app
+	->command('collect for-version', new Collect())
+	->descriptions(
+		'Collects classmap statistics for a specific Joomla! version',
+		[
+			'for-version' => 'The Joomla! version to collect stats for',
 		]
 	);
 

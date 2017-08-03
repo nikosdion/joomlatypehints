@@ -7,6 +7,7 @@
 
 use Akeeba\JTypeHints\Command\Collect;
 use Akeeba\JTypeHints\Command\Generate;
+use Akeeba\JTypeHints\Command\Table;
 
 // Has the user run composer install already?
 if (!is_file(__DIR__ . '/vendor/autoload.php'))
@@ -44,5 +45,15 @@ $app
 			'for-version' => 'The Joomla! version to collect stats for',
 		]
 	);
+$app
+	->command('table [--format=]', new Table())
+	->descriptions(
+		'Create a classmap statistics table (remember to use --raw)',
+		[
+			'--format' => 'The format to generate (supported: markdown, page)',
+		]
+	)->defaults([
+		'format' => 'markdown'
+	]);
 
 $app->run();

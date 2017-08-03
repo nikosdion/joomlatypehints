@@ -82,7 +82,7 @@ class Collect
 		$this->saveClassmapStats($filePath, $stats);
 	}
 
-	private function loadClassmapStats(string $filePath): array
+	protected function loadClassmapStats(string $filePath): array
 	{
 		if (!is_file($filePath))
 		{

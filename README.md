@@ -49,7 +49,7 @@ php typehints.php generate --for-version=staging
 
 Against a Joomla! installation, e.g. /var/www/joomla-cms
 ```bash
-php typehinst.php generate --for-site=/var/www/joomla-cms
+php typehints.php generate --for-site=/var/www/joomla-cms
 ```
 
 By default the typehint classes are output in the `generated_hints` folder. You can change that by passing a folder name to the

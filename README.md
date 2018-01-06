@@ -38,24 +38,24 @@ useful for core development against the staging branch.
 
 Against a published Joomla! version, e.g. 3.7.4
 ```bash
-php typehint.php --for-version=3.7.4
+php typehints.php generate --for-version=3.7.4
 ```
 
 Ninja developer tip: The `--for-version` argument also accepts any published GitHub branch name for the joomla/joomla-cms repository. For example, if you want to generate typehints for the current staging branch:
 
 ```bash
-php typehint.php --for-version=staging
+php typehints.php generate --for-version=staging
 ``` 
 
 Against a Joomla! installation, e.g. /var/www/joomla-cms
 ```bash
-php typehint.php --for-site=/var/www/joomla-cms
+php typehinst.php generate --for-site=/var/www/joomla-cms
 ```
 
 By default the typehint classes are output in the `generated_hints` folder. You can change that by passing a folder name to the
 command (the folder must already exist). For example:
 ```bash
-php typehint.php --for-site=/var/www/joomla-cms /var/www/joomla-cms/typehints
+php typehints.php generate --for-site=/var/www/joomla-cms /var/www/joomla-cms/typehints
 ```
 
 Invoke the application without any parameters to get help. It's self-documenting!

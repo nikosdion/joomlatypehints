@@ -21,7 +21,3 @@
 ## Composer
 
 vendor
-
-## Temporary folders and generated files
-
-generated_hints/*.php

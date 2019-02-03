@@ -10,10 +10,10 @@
 | JRegistryFormatXML | \Joomla\Registry\Format\Xml | 3.3.0 | 4.0 |
 | JStringInflector | \Joomla\String\Inflector | 3.4.0 | 4.0 |
 | JStringNormalise | \Joomla\String\Normalise | 3.4.0 | 4.0 |
-| JRegistryFormatIni | \Joomla\Registry\Format\Ini | 3.4.4 | 4.0 |
-| JRegistryFormatJson | \Joomla\Registry\Format\Json | 3.4.4 | 4.0 |
-| JRegistryFormatPhp | \Joomla\Registry\Format\Php | 3.4.4 | 4.0 |
-| JRegistryFormatXml | \Joomla\Registry\Format\Xml | 3.4.4 | 4.0 |
+| JRegistryFormatIni | \Joomla\Registry\Format\Ini | 3.5.0 | 4.0 |
+| JRegistryFormatJson | \Joomla\Registry\Format\Json | 3.5.0 | 4.0 |
+| JRegistryFormatPhp | \Joomla\Registry\Format\Php | 3.5.0 | 4.0 |
+| JRegistryFormatXml | \Joomla\Registry\Format\Xml | 3.5.0 | 4.0 |
 | JApplicationWebClient | \Joomla\Application\Web\WebClient | 3.6.0 | 4.0 |
 | JData | \Joomla\Data\DataObject | 3.7.0 | 4.0 |
 | JDataSet | \Joomla\Data\DataSet | 3.7.0 | 4.0 |
@@ -30,18 +30,18 @@
 | JCli | \Joomla\CMS\Application\CliApplication | 3.8.0 | 5.0 |
 | JWeb | \Joomla\CMS\Application\WebApplication | 3.8.0 | 4.0 |
 | JWebClient | \Joomla\Application\Web\WebClient | 3.8.0 | 4.0 |
-| JModelAdmin | \Joomla\CMS\Model\Admin | 3.8.0 | 5.0 |
-| JModelForm | \Joomla\CMS\Model\Form | 3.8.0 | 5.0 |
-| JModelItem | \Joomla\CMS\Model\Item | 3.8.0 | 5.0 |
-| JModelList | \Joomla\CMS\Model\ListModel | 3.8.0 | 5.0 |
-| JModelLegacy | \Joomla\CMS\Model\Model | 3.8.0 | 5.0 |
-| JViewCategories | \Joomla\CMS\View\Categories | 3.8.0 | 5.0 |
-| JViewCategory | \Joomla\CMS\View\Category | 3.8.0 | 5.0 |
-| JViewCategoryfeed | \Joomla\CMS\View\CategoryFeed | 3.8.0 | 5.0 |
-| JViewLegacy | \Joomla\CMS\View\HtmlView | 3.8.0 | 5.0 |
-| JControllerAdmin | \Joomla\CMS\Controller\Admin | 3.8.0 | 5.0 |
-| JControllerLegacy | \Joomla\CMS\Controller\Controller | 3.8.0 | 5.0 |
-| JControllerForm | \Joomla\CMS\Controller\Form | 3.8.0 | 5.0 |
+| JModelAdmin | \Joomla\CMS\MVC\Model\AdminModel | 3.8.0 | 5.0 |
+| JModelForm | \Joomla\CMS\MVC\Model\FormModel | 3.8.0 | 5.0 |
+| JModelItem | \Joomla\CMS\MVC\Model\ItemModel | 3.8.0 | 5.0 |
+| JModelList | \Joomla\CMS\MVC\Model\ListModel | 3.8.0 | 5.0 |
+| JModelLegacy | \Joomla\CMS\MVC\Model\BaseDatabaseModel | 3.8.0 | 5.0 |
+| JViewCategories | \Joomla\CMS\MVC\View\CategoriesView | 3.8.0 | 5.0 |
+| JViewCategory | \Joomla\CMS\MVC\View\CategoryView | 3.8.0 | 5.0 |
+| JViewCategoryfeed | \Joomla\CMS\MVC\View\CategoryFeedView | 3.8.0 | 5.0 |
+| JViewLegacy | \Joomla\CMS\MVC\View\HtmlView | 3.8.0 | 5.0 |
+| JControllerAdmin | \Joomla\CMS\MVC\Controller\AdminController | 3.8.0 | 5.0 |
+| JControllerLegacy | \Joomla\CMS\MVC\Controller\BaseController | 3.8.0 | 5.0 |
+| JControllerForm | \Joomla\CMS\MVC\Controller\FormController | 3.8.0 | 5.0 |
 | JTableInterface | \Joomla\CMS\Table\TableInterface | 3.8.0 | 5.0 |
 | JTable | \Joomla\CMS\Table\Table | 3.8.0 | 5.0 |
 | JTableNested | \Joomla\CMS\Table\Nested | 3.8.0 | 5.0 |
@@ -79,6 +79,7 @@
 | JLanguageHelper | \Joomla\CMS\Language\LanguageHelper | 3.8.0 | 5.0 |
 | JLanguageStemmer | \Joomla\CMS\Language\LanguageStemmer | 3.8.0 | 5.0 |
 | JLanguageMultilang | \Joomla\CMS\Language\Multilanguage | 3.8.0 | 5.0 |
+| JText | \Joomla\CMS\Language\Text | 3.8.0 | 5.0 |
 | JLanguageTransliterate | \Joomla\CMS\Language\Transliterate | 3.8.0 | 5.0 |
 | JLanguageStemmerPorteren | \Joomla\CMS\Language\Stemmer\Porteren | 3.8.0 | 5.0 |
 | JLanguageWrapperText | \Joomla\CMS\Language\Wrapper\JTextWrapper | 3.8.0 | 4.0 |
@@ -190,7 +191,7 @@
 | JHttpTransportCurl | \Joomla\CMS\Http\Transport\CurlTransport | 3.8.0 | 5.0 |
 | JHttpTransportSocket | \Joomla\CMS\Http\Transport\SocketTransport | 3.8.0 | 5.0 |
 | JHttpTransportStream | \Joomla\CMS\Http\Transport\StreamTransport | 3.8.0 | 5.0 |
-| JHttpWrapperFactory | \Joomla\CMS\Http\Wrapper\FactoryWrapper | 3.8.0 | 5.0 |
+| JHttpWrapperFactory | \Joomla\CMS\Http\Wrapper\FactoryWrapper | 3.8.0 | 4.0 |
 | JInstaller | \Joomla\CMS\Installer\Installer | 3.8.0 | 5.0 |
 | JInstallerAdapter | \Joomla\CMS\Installer\InstallerAdapter | 3.8.0 | 5.0 |
 | JInstallerExtension | \Joomla\CMS\Installer\InstallerExtension | 3.8.0 | 5.0 |
@@ -216,8 +217,9 @@
 | JInstallerTemplate | \Joomla\CMS\Installer\Adapter\TemplateAdapter | 3.8.0 | 5.0 |
 | JInstallerManifestLibrary | \Joomla\CMS\Installer\Manifest\LibraryManifest | 3.8.0 | 5.0 |
 | JInstallerManifestPackage | \Joomla\CMS\Installer\Manifest\PackageManifest | 3.8.0 | 5.0 |
-| JRouter | \Joomla\CMS\Router\Router | 3.8.0 | 5.0 |
 | JRouterAdministrator | \Joomla\CMS\Router\AdministratorRouter | 3.8.0 | 5.0 |
+| JRoute | \Joomla\CMS\Router\Route | 3.8.0 | 5.0 |
+| JRouter | \Joomla\CMS\Router\Router | 3.8.0 | 5.0 |
 | JRouterSite | \Joomla\CMS\Router\SiteRouter | 3.8.0 | 5.0 |
 | JCategories | \Joomla\CMS\Categories\Categories | 3.8.0 | 5.0 |
 | JCategoryNode | \Joomla\CMS\Categories\CategoryNode | 3.8.0 | 5.0 |
@@ -267,31 +269,32 @@
 | JFormWrapper | \Joomla\CMS\Form\FormWrapper | 3.8.0 | 4.0 |
 | JFormFieldAuthor | \Joomla\CMS\Form\Field\AuthorField | 3.8.0 | 5.0 |
 | JFormFieldCaptcha | \Joomla\CMS\Form\Field\CaptchaField | 3.8.0 | 5.0 |
-| JFormFieldChromeStyle | \Joomla\CMS\Form\Field\ChromeStyleField | 3.8.0 | 5.0 |
+| JFormFieldChromeStyle | \Joomla\CMS\Form\Field\ChromestyleField | 3.8.0 | 5.0 |
 | JFormFieldContenthistory | \Joomla\CMS\Form\Field\ContenthistoryField | 3.8.0 | 5.0 |
 | JFormFieldContentlanguage | \Joomla\CMS\Form\Field\ContentlanguageField | 3.8.0 | 5.0 |
 | JFormFieldContenttype | \Joomla\CMS\Form\Field\ContenttypeField | 3.8.0 | 5.0 |
 | JFormFieldEditor | \Joomla\CMS\Form\Field\EditorField | 3.8.0 | 5.0 |
-| JFormFieldFrontend_Language | \Joomla\CMS\Form\Field\FrontendLanguageField | 3.8.0 | 5.0 |
+| JFormFieldFrontend_Language | \Joomla\CMS\Form\Field\FrontendlanguageField | 3.8.0 | 5.0 |
 | JFormFieldHeadertag | \Joomla\CMS\Form\Field\HeadertagField | 3.8.0 | 5.0 |
 | JFormFieldHelpsite | \Joomla\CMS\Form\Field\HelpsiteField | 3.8.0 | 5.0 |
-| JFormFieldLastvisitDateRange | \Joomla\CMS\Form\Field\LastvisitDateRangeField | 3.8.0 | 5.0 |
+| JFormFieldLastvisitDateRange | \Joomla\CMS\Form\Field\LastvisitdaterangeField | 3.8.0 | 5.0 |
 | JFormFieldLimitbox | \Joomla\CMS\Form\Field\LimitboxField | 3.8.0 | 5.0 |
 | JFormFieldMedia | \Joomla\CMS\Form\Field\MediaField | 3.8.0 | 5.0 |
 | JFormFieldMenu | \Joomla\CMS\Form\Field\MenuField | 3.8.0 | 5.0 |
 | JFormFieldMenuitem | \Joomla\CMS\Form\Field\MenuitemField | 3.8.0 | 5.0 |
-| JFormFieldModuleOrder | \Joomla\CMS\Form\Field\ModuleOrderField | 3.8.0 | 5.0 |
-| JFormFieldModulePosition | \Joomla\CMS\Form\Field\ModulePositionField | 3.8.0 | 5.0 |
+| JFormFieldModuleOrder | \Joomla\CMS\Form\Field\ModuleorderField | 3.8.0 | 5.0 |
+| JFormFieldModulePosition | \Joomla\CMS\Form\Field\ModulepositionField | 3.8.0 | 5.0 |
 | JFormFieldModuletag | \Joomla\CMS\Form\Field\ModuletagField | 3.8.0 | 5.0 |
 | JFormFieldOrdering | \Joomla\CMS\Form\Field\OrderingField | 3.8.0 | 5.0 |
-| JFormFieldPlugin_Status | \Joomla\CMS\Form\Field\PluginStatusField | 3.8.0 | 5.0 |
-| JFormFieldRegistrationDateRange | \Joomla\CMS\Form\Field\RegistrationDateRangeField | 3.8.0 | 5.0 |
+| JFormFieldPlugin_Status | \Joomla\CMS\Form\Field\PluginstatusField | 3.8.0 | 5.0 |
+| JFormFieldRedirect_Status | \Joomla\CMS\Form\Field\RedirectStatusField | 3.8.0 | 5.0 |
+| JFormFieldRegistrationDateRange | \Joomla\CMS\Form\Field\RegistrationdaterangeField | 3.8.0 | 5.0 |
 | JFormFieldStatus | \Joomla\CMS\Form\Field\StatusField | 3.8.0 | 5.0 |
 | JFormFieldTag | \Joomla\CMS\Form\Field\TagField | 3.8.0 | 5.0 |
 | JFormFieldTemplatestyle | \Joomla\CMS\Form\Field\TemplatestyleField | 3.8.0 | 5.0 |
-| JFormFieldUserActive | \Joomla\CMS\Form\Field\UserActiveField | 3.8.0 | 5.0 |
-| JFormFieldUserGroupList | \Joomla\CMS\Form\Field\UserGroupListField | 3.8.0 | 5.0 |
-| JFormFieldUserState | \Joomla\CMS\Form\Field\UserStateField | 3.8.0 | 5.0 |
+| JFormFieldUserActive | \Joomla\CMS\Form\Field\UseractiveField | 3.8.0 | 5.0 |
+| JFormFieldUserGroupList | \Joomla\CMS\Form\Field\UsergrouplistField | 3.8.0 | 5.0 |
+| JFormFieldUserState | \Joomla\CMS\Form\Field\UserstateField | 3.8.0 | 5.0 |
 | JFormFieldUser | \Joomla\CMS\Form\Field\UserField | 3.8.0 | 5.0 |
 | JFormRuleBoolean | \Joomla\CMS\Form\Rule\BooleanRule | 3.8.0 | 5.0 |
 | JFormRuleCalendar | \Joomla\CMS\Form\Rule\CalendarRule | 3.8.0 | 5.0 |
@@ -353,6 +356,32 @@
 | JFeedParserRss | \Joomla\CMS\Feed\Parser\RssParser | 3.8.0 | 5.0 |
 | JFeedParserRssItunes | \Joomla\CMS\Feed\Parser\Rss\ItunesRssParser | 3.8.0 | 5.0 |
 | JFeedParserRssMedia | \Joomla\CMS\Feed\Parser\Rss\MediaRssParser | 3.8.0 | 5.0 |
+| JImage | \Joomla\CMS\Image\Image | 3.8.0 | 5.0 |
+| JImageFilter | \Joomla\CMS\Image\ImageFilter | 3.8.0 | 5.0 |
+| JImageFilterBackgroundfill | \Joomla\Image\Filter\Backgroundfill | 3.8.0 | 5.0 |
+| JImageFilterBrightness | \Joomla\Image\Filter\Brightness | 3.8.0 | 5.0 |
+| JImageFilterContrast | \Joomla\Image\Filter\Contrast | 3.8.0 | 5.0 |
+| JImageFilterEdgedetect | \Joomla\Image\Filter\Edgedetect | 3.8.0 | 5.0 |
+| JImageFilterEmboss | \Joomla\Image\Filter\Emboss | 3.8.0 | 5.0 |
+| JImageFilterNegate | \Joomla\Image\Filter\Negate | 3.8.0 | 5.0 |
+| JImageFilterSketchy | \Joomla\Image\Filter\Sketchy | 3.8.0 | 5.0 |
+| JImageFilterSmooth | \Joomla\Image\Filter\Smooth | 3.8.0 | 5.0 |
+| JObject | \Joomla\CMS\Object\CMSObject | 3.8.0 | 5.0 |
+| JExtensionHelper | \Joomla\CMS\Extension\ExtensionHelper | 3.8.0 | 5.0 |
+| JHtml | \Joomla\CMS\HTML\HTMLHelper | 3.8.0 | 5.0 |
+| JToolbarHelper | \Joomla\CMS\Toolbar\ToolbarHelper | 3.9.0 | 5.0 |
+| JCryptCipherSodium | \Joomla\CMS\Crypt\Cipher\SodiumCipher | 3.9.0 | 5.0 |
+| JFile | \Joomla\CMS\Filesystem\File | 3.9.0 | 5.0 |
+| JFolder | \Joomla\CMS\Filesystem\Folder | 3.9.0 | 5.0 |
+| JFilesystemHelper | \Joomla\CMS\Filesystem\FilesystemHelper | 3.9.0 | 5.0 |
+| JFilesystemPatcher | \Joomla\CMS\Filesystem\Patcher | 3.9.0 | 5.0 |
+| JPath | \Joomla\CMS\Filesystem\Path | 3.9.0 | 5.0 |
+| JStream | \Joomla\CMS\Filesystem\Stream | 3.9.0 | 5.0 |
+| JStreamString | \Joomla\CMS\Filesystem\Streams\StreamString | 3.9.0 | 5.0 |
+| JStringController | \Joomla\CMS\Filesystem\Support\StringController | 3.9.0 | 5.0 |
+| JFilesystemWrapperFile | \Joomla\CMS\Filesystem\Wrapper\FileWrapper | 3.9.0 | 5.0 |
+| JFilesystemWrapperFolder | \Joomla\CMS\Filesystem\Wrapper\FolderWrapper | 3.9.0 | 5.0 |
+| JFilesystemWrapperPath | \Joomla\CMS\Filesystem\Wrapper\PathWrapper | 3.9.0 | 5.0 |
 
 ## Why do you need this matrix
 
@@ -370,6 +399,10 @@ The _Obsolete since_ column contains the version of Joomla! where the old class 
 
 If these two conditions conflict you must either raise your minimum supported Joomla! version number (strongly recommended) or lower your maximum supported Joomla! version number.
 
+## Dot-zero minor versions only
+
+To maintain a modicum developer sanity, we only collect information about namespaced classes in dot-zero minor releases i.e. 3.3.0, 3.4.0, 3.5.0 and so on. A keen observer will see that some classes were namespaced in patch releases, e.g. 3.4.4. These classes appear as being namespaced in the next dot-zero minor release. For example, classes namespaced in 3.4.4 appear on the matrix as being namespaced since 3.5.0.
+
 ## How was this page generated
 
-This page is maintained automatically using the TypeHint Helper for Joomla!. Every time Joomla! releases a new version we run `php typehint.php collect <new version>` where `<new version>` is the released Joomla! version. Then we run `php typehint.php table --format=page` to update this page. The template of this page is inside this repository, in the `template.md` file.
+This page is maintained automatically using the TypeHint Helper for Joomla!. Every time Joomla! releases a new version we run `php typehints.php collect <new version>` where `<new version>` is the released Joomla! version. Then we run `php typehint.php table --format=page` to update this page. The template of this page is inside this repository, in the `template.md` file.

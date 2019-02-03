@@ -18,6 +18,10 @@ The _Obsolete since_ column contains the version of Joomla! where the old class 
 
 If these two conditions conflict you must either raise your minimum supported Joomla! version number (strongly recommended) or lower your maximum supported Joomla! version number.
 
+## Dot-zero minor versions only
+
+To maintain a modicum developer sanity, we only collect information about namespaced classes in dot-zero minor releases i.e. 3.3.0, 3.4.0, 3.5.0 and so on. A keen observer will see that some classes were namespaced in patch releases, e.g. 3.4.4. These classes appear as being namespaced in the next dot-zero minor release. For example, classes namespaced in 3.4.4 appear on the matrix as being namespaced since 3.5.0.
+
 ## How was this page generated
 
-This page is maintained automatically using the TypeHint Helper for Joomla!. Every time Joomla! releases a new version we run `php typehint.php collect <new version>` where `<new version>` is the released Joomla! version. Then we run `php typehint.php table --format=page` to update this page. The template of this page is inside this repository, in the `template.md` file.
+This page is maintained automatically using the TypeHint Helper for Joomla!. Every time Joomla! releases a new version we run `php typehints.php collect <new version>` where `<new version>` is the released Joomla! version. Then we run `php typehint.php table --format=page` to update this page. The template of this page is inside this repository, in the `template.md` file.

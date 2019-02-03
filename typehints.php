@@ -28,13 +28,14 @@ require_once 'version.php';
 $app = new Silly\Application('TypeHint Helper for Joomla!', JTHH_VERSION);
 
 $app
-	->command('generate [folder] [--for-version=] [--for-site=]', new Generate())
+	->command('generate [folder] [--for-version=] [--for-site=] [--no-overwrite]', new Generate())
 	->descriptions(
 		'Generates type hints for a specific Joomla! version or installed site',
 		[
-			'folder'        => 'Where do you want the typehint class files to be stored. Default: generated_hints',
-			'--for-version' => 'Joomla! version number for which to generate the typehints',
-			'--for-site'    => 'Path to a Joomla! installation for which to generate the typehints',
+			'folder'         => 'Where do you want the typehint class files to be stored. Default: generated_hints',
+			'--for-version'  => 'Joomla! version number for which to generate the typehints',
+			'--for-site'     => 'Path to a Joomla! installation for which to generate the typehints',
+			'--no-overwrite' => 'Do not overwrite existing files',
 		]
 	);
 $app
@@ -48,7 +49,7 @@ $app
 $app
 	->command('table [--format=]', new Table())
 	->descriptions(
-		'Create a classmap statistics table (remember to use --raw)',
+		'Create a classmap statistics table',
 		[
 			'--format' => 'The format to generate (supported: markdown, page)',
 		]

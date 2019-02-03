@@ -14,7 +14,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class Generate
 {
-	public function __invoke($folder, $forVersion, $forSite, OutputInterface $output)
+	public function __invoke($folder, $forVersion, $forSite, $noOverwrite, OutputInterface $output)
 	{
 		if (empty($folder))
 		{
@@ -46,7 +46,9 @@ class Generate
 		$output->writeln("Typehint classes will be written to $folder");
 
 		$generator = new Generator($parser);
-		$generator->setGeneratedFor(empty($forSite) ? "version $forVersion" : $forSite);
-		$generator->generate($folder);
+		$generator
+			->setGeneratedFor(empty($forSite) ? "version $forVersion" : $forSite)
+			->setOverwrite(!$noOverwrite)
+			->generate($folder);
 	}
 }

@@ -1,0 +1,10 @@
+services:
+  Rector\Rector\Class_\RenameClassRector:
+    JRegistry: Joomla\Registry\Registry
+    JRegistryFormat: Joomla\Registry\AbstractRegistryFormat
+    JRegistryFormatINI: Joomla\Registry\Format\Ini
+    JRegistryFormatJSON: Joomla\Registry\Format\Json
+    JRegistryFormatPHP: Joomla\Registry\Format\Php
+    JRegistryFormatXML: Joomla\Registry\Format\Xml
+    JStringInflector: Joomla\String\Inflector
+    JStringNormalise: Joomla\String\Normalise

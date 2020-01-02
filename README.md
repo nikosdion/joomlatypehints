@@ -68,6 +68,37 @@ Invoke the application without any parameters to get help. It's self-documenting
 * Click the [+] button to the right hand of the include path list.
 * Select _Specify Other..._ and select the generated class hints folder.
 
+### Using Rector to refactor your legacy code
+
+Upgrading your Joomla extensions to use the new, namespaced classes by hand is a drag. It will take you ages, especially
+if you have a rather large corpus of code you've been developing for over a decade like we do at Akeeba Ltd.
+
+The solution to that is [Rector](https://github.com/rectorphp/rector), a tool for automatically refactoring PHP code.
+
+This repository ships with YAML configuration files for Rector which will automatically rename legacy classes to their
+namespaced equivalents. The YAML files are generated automatically in the same way as the typehints files.
+
+Here's how to do it.
+
+First, find the file with the _minimum_ Joomla version your codebase supports. For example, if you want to support _at
+least_ Joomla 3.8 you need the file `joomla_3_8.yaml`.
+
+Copy this file into the root of your repository and rename it to `rector.yaml`.
+
+Now run:
+
+`docker run -v $(pwd):/project rector/rector:latest process /project --config /project/rector.yaml --dry-run`
+
+to see the changes Rector will do to your repository. Skip the `--dry-run` parameter to apply the changes to your code.
+
+Always go through your code and test your extension _BEFORE_ committing anything to your repository. Rector makes things
+easier for you but it's not infallible.
+
+**Tip**: Instead of going all in with a minimum Joomla version try building up to it. For example, if your software only
+supports Joomla 3.9 and later start by running Rector with the `joomla_3_3.yaml` file. Review and test your code, commit
+and then repeat the process with the `joomla_3_4.yaml` file. Keep doing that for each file up to and including
+`joomla_3_9.yaml`.  
+
 ## How does it do it?
 
 It reads Joomla's libraries/classmap.php file and generates fake class files so that the deprecated class extends from the new,

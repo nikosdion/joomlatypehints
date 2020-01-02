@@ -7,6 +7,7 @@
 
 use Akeeba\JTypeHints\Command\Collect;
 use Akeeba\JTypeHints\Command\Generate;
+use Akeeba\JTypeHints\Command\Rector;
 use Akeeba\JTypeHints\Command\Table;
 
 // Has the user run composer install already?
@@ -38,6 +39,7 @@ $app
 			'--no-overwrite' => 'Do not overwrite existing files',
 		]
 	);
+
 $app
 	->command('collect for-version', new Collect())
 	->descriptions(
@@ -46,6 +48,18 @@ $app
 			'for-version' => 'The Joomla! version to collect stats for',
 		]
 	);
+
+$app
+	->command('rector [folder]', new Rector())
+	->descriptions(
+		'Creates YAML files for Rector',
+		[
+			'folder' => 'Where do you want the typehint class files to be stored. Default: rector',
+		]
+	)->defaults([
+		'folder' => 'rector',
+	]);
+
 $app
 	->command('table [--format=]', new Table())
 	->descriptions(

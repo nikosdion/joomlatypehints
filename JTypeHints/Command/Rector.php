@@ -43,7 +43,8 @@ class Rector extends Collect
 
 				$yaml = <<< YAML
 services:
-  Rector\Rector\Class_\RenameClassRector:
+  Rector\Renaming\Rector\Class_\RenameClassRector:
+    \$oldToNewClasses:
 
 YAML;
 
@@ -51,7 +52,7 @@ YAML;
 				{
 					$old  = ltrim($old, '\\');
 					$new  = ltrim($new, '\\');
-					$yaml .= "    $old: $new\n";
+					$yaml .= "      $old: '$new'\n";
 				}
 
 				file_put_contents($folder. '/' . $fileName, $yaml);

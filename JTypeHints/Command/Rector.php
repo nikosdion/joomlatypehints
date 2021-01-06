@@ -7,7 +7,6 @@
 
 namespace Akeeba\JTypeHints\Command;
 
-use RuntimeException;
 use Symfony\Component\Console\Output\OutputInterface;
 
 class Rector extends Collect
@@ -39,23 +38,53 @@ class Rector extends Collect
 				}
 
 				$lastResult = $map;
-				$fileName   = "joomla_{$major}_{$minor}.yaml";
+				$fileName   = "joomla_{$major}_{$minor}.php";
 
-				$yaml = <<< YAML
-services:
-  Rector\Renaming\Rector\Class_\RenameClassRector:
-    \$oldToNewClasses:
-
-YAML;
-
+				$lines = "";
 				foreach ($map as $old => $new)
 				{
-					$old  = ltrim($old, '\\');
-					$new  = ltrim($new, '\\');
-					$yaml .= "      $old: '$new'\n";
+					$lines .= sprintf("\t\t\t\t\t'%s' => '%s',\n", ltrim($old, '\\'), ltrim($new, '\\'));
 				}
+				$lines = trim($lines);
 
-				file_put_contents($folder. '/' . $fileName, $yaml);
+				$php = <<< PHP
+<?php
+/**
+ * @package   JTypeHints
+ * @copyright Copyright (c) 2017-2021 Nicholas K. Dionysopoulos
+ * @license   GNU General Public License version 2 or later; see LICENSE.txt
+ */
+
+declare(strict_types=1);
+
+use Rector\Renaming\Rector\Name\RenameClassRector;
+use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
+
+/**
+ * Rector 0.8/0.9 configuration for converting legacy Joomla! classes to namespaced ones, compatible with Joomla! {$major}.{$minor}
+ */
+return static function (ContainerConfigurator \$containerConfigurator): void {
+    \$services = \$containerConfigurator->services();
+
+    \$services->defaults()
+        ->autowire()
+        ->public()
+        ->autoconfigure();
+
+	\$services->set(RenameClassRector::class)
+		->call('configure', [
+			[
+				RenameClassRector::OLD_TO_NEW_CLASSES => [
+{$lines}
+				],
+			]
+		]);
+};
+PHP;
+
+				file_put_contents($folder . '/' . $fileName, $php);
+
+				$output->writeln(sprintf("Joomla! %s.%s rector written to %s", $major, $minor, $fileName));
 			}
 		}
 	}

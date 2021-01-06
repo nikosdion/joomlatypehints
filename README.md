@@ -75,19 +75,19 @@ if you have a rather large corpus of code you've been developing for over a deca
 
 The solution to that is [Rector](https://github.com/rectorphp/rector), a tool for automatically refactoring PHP code.
 
-This repository ships with YAML configuration files for Rector which will automatically rename legacy classes to their
-namespaced equivalents. The YAML files are generated automatically in the same way as the typehints files.
+This repository ships with PHP configuration files for Rector which will automatically rename legacy classes to their
+namespaced equivalents. The PHP files are generated automatically in the same way as the typehints files.
 
 Here's how to do it.
 
 First, find the file with the _minimum_ Joomla version your codebase supports. For example, if you want to support _at
-least_ Joomla 3.8 you need the file `joomla_3_8.yaml`.
+least_ Joomla 3.8 you need the file `joomla_3_8.php`.
 
-Copy this file into the root of your repository and rename it to `rector.yaml`.
+Copy this file into the root of your repository and rename it to `rector.php`.
 
 Now run:
 
-`docker run -v $(pwd):/project rector/rector:latest process /project --config /project/rector.yaml --dry-run`
+`docker run -v $(pwd):/project rector/rector:latest process /project --config /project/rector.php --dry-run`
 
 to see the changes Rector will do to your repository. Skip the `--dry-run` parameter to apply the changes to your code.
 
@@ -95,9 +95,9 @@ Always go through your code and test your extension _BEFORE_ committing anything
 easier for you but it's not infallible.
 
 **Tip**: Instead of going all in with a minimum Joomla version try building up to it. For example, if your software only
-supports Joomla 3.9 and later start by running Rector with the `joomla_3_3.yaml` file. Review and test your code, commit
-and then repeat the process with the `joomla_3_4.yaml` file. Keep doing that for each file up to and including
-`joomla_3_9.yaml`.  
+supports Joomla 3.9 and later start by running Rector with the `joomla_3_3.php` file. Review and test your code, commit
+and then repeat the process with the `joomla_3_4.php` file. Keep doing that for each file up to and including
+`joomla_3_9.php`.  
 
 ## How does it do it?
 
@@ -118,6 +118,16 @@ class JRegistry extends \Joomla\Registry\Registry {}
 This lets your IDE know that even if you have used `JRegistry` in your DocBlocks / PHP 7.x type hints it should provide code
 completion for the new `\Joomla\Registry\Registry` class. At the same time your IDE will mark the old `JRegistry` class as
 deprecated (if it supports such a feature) so you can eventually refactor it to the new class name.
+
+## Doesn't Joomla already include `stubs.php`?
+
+Yes, it does and it goes most of the way but not all of the way. It does give you the mapping of legacy to namespaced classes which are available in your Joomla version. It does tell you when they become obsolete.
+
+It does not help you if you have a legacy code base using legacy Joomla classes which are no longer available in the Joomla version you are trying to use. For example, trying to target Joomla 4.0 means that you no longer have certain legacy classes which were deprecated in 3.x and removed in 4.0. Good luck trying to figure that out.
+
+Moreover, it makes no sense going through your code base manually to change legacy classes to their namespaced equivalents. It's dull, it takes too long and there's a lot of room for mistakes. Using Rector is a far better solution. Why build your own Rector configuration when you can have it automatically generated for you?
+
+Finally, you don't get a handy reference with all of the classes, when their namespaced variant was introduced and when the legacy class will be retired. This is invaluable if you're developing against a newer Joomla version but you're trying to target older versions as well. Same goes for trying to figure out which is the minimum version of Joomla you can reasonably target without having to pepper your source code with endless if-blocks whenever you're using a namespaced class you're not sure when it was introduced.
 
 ## Joomla! trademark disclaimer
 

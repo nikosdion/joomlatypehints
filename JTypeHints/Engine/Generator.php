@@ -33,7 +33,7 @@ class Generator
 	/**
 	 * Generator constructor.
 	 *
-	 * @param   Parser   $parser  The classmap.php parser we're going to be using
+	 * @param   Parser  $parser  The classmap.php parser we're going to be using
 	 */
 	public function __construct(Parser $parser)
 	{
@@ -82,9 +82,10 @@ class Generator
 
 		foreach ($map as $oldClass => $newClass)
 		{
-			$maxVersion  = isset($versions[$oldClass]) ? $versions[$oldClass] : '4.0';
-			$filePath    = $outputFolder . '/' . $oldClass . '.php';
-			$fileContent = $this->generateFakeClass($oldClass, $newClass, $maxVersion);
+			$maxVersion          = isset($versions[$oldClass]) ? $versions[$oldClass] : '4.0';
+			$oldClassForFilename = str_replace('\\', '_', trim($oldClass, '\\'));
+			$filePath            = $outputFolder . '/' . $oldClassForFilename . '.php';
+			$fileContent         = $this->generateFakeClass($oldClass, $newClass, $maxVersion);
 
 			if (!$this->overwrite && @file_exists($filePath))
 			{
@@ -111,7 +112,7 @@ class Generator
 		if (!$this->overwrite && substr($this->generatedFor, 0, 8) == 'version ')
 		{
 			$sinceVersion = substr($this->generatedFor, 8);
-			$since = "@since       {$sinceVersion}\n * ";
+			$since        = "@since       {$sinceVersion}\n * ";
 		}
 
 		$content = <<< PHP

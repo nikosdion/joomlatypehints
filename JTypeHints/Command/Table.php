@@ -12,7 +12,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class Table extends Collect
 {
-	public function __invoke($format = 'markdown', OutputInterface $output)
+	public function __invoke($format, OutputInterface $output)
 	{
 		$filePath = __DIR__ . '/../../classmapstats.json';
 		$stats    = $this->loadClassmapStats($filePath);

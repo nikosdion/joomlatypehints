@@ -11,7 +11,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class Rector extends Collect
 {
-	public function __invoke($folder = 'rector', OutputInterface $output)
+	public function __invoke($folder, OutputInterface $output)
 	{
 		$filePath = __DIR__ . '/../../classmapstats.json';
 		$stats    = $this->loadClassmapStats($filePath);

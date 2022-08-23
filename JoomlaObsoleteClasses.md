@@ -499,7 +499,6 @@
 | JHtmlTel | \Joomla\CMS\HTML\Helpers\Telephone | 4.0.0 | 5.0 |
 | JHtmlUser | \Joomla\CMS\HTML\Helpers\User | 4.0.0 | 5.0 |
 
-
 ## Why do you need this matrix
 
 Joomla! has started replacing its core classes with namespaced classes since version 3.3.0. For example `JRegistry` is replaced by `Joomla\Registry\Registry`.

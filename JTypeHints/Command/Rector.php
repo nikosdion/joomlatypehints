@@ -1,7 +1,7 @@
 <?php
 /**
  * @package   JTypeHints
- * @copyright Copyright (c) 2017-2021 Nicholas K. Dionysopoulos
+ * @copyright Copyright (c) 2017-2022 Nicholas K. Dionysopoulos
  * @license   GNU General Public License version 2 or later; see LICENSE.txt
  */
 
@@ -51,7 +51,7 @@ class Rector extends Collect
 <?php
 /**
  * @package   JTypeHints
- * @copyright Copyright (c) 2017-2021 Nicholas K. Dionysopoulos
+ * @copyright Copyright (c) 2017-2022 Nicholas K. Dionysopoulos
  * @license   GNU General Public License version 2 or later; see LICENSE.txt
  */
 

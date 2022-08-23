@@ -7,31 +7,24 @@
 
 declare(strict_types=1);
 
+use Rector\Config\RectorConfig;
 use Rector\Renaming\Rector\Name\RenameClassRector;
-use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 
 /**
- * Rector 0.8/0.9 configuration for converting legacy Joomla! classes to namespaced ones, compatible with Joomla! 3.3
+ * Rector 0.14 configuration for converting legacy Joomla! classes to namespaced ones, compatible with Joomla! 3.3
  */
-return static function (ContainerConfigurator $containerConfigurator): void {
-    $services = $containerConfigurator->services();
+return static function (RectorConfig $rectorConfig): void {
+	$rectorConfig->ruleWithConfiguration(
+		RenameClassRector::class,
+		[
 
-    $services->defaults()
-        ->autowire()
-        ->public()
-        ->autoconfigure();
-
-	$services->set(RenameClassRector::class)
-		->call('configure', [
-			[
-				RenameClassRector::OLD_TO_NEW_CLASSES => [
 'JRegistry' => 'Joomla\Registry\Registry',
-					'JRegistryFormat' => 'Joomla\Registry\AbstractRegistryFormat',
-					'JRegistryFormatINI' => 'Joomla\Registry\Format\Ini',
-					'JRegistryFormatJSON' => 'Joomla\Registry\Format\Json',
-					'JRegistryFormatPHP' => 'Joomla\Registry\Format\Php',
-					'JRegistryFormatXML' => 'Joomla\Registry\Format\Xml',
-				],
-			]
-		]);
+			'JRegistryFormat' => 'Joomla\Registry\AbstractRegistryFormat',
+			'JRegistryFormatINI' => 'Joomla\Registry\Format\Ini',
+			'JRegistryFormatJSON' => 'Joomla\Registry\Format\Json',
+			'JRegistryFormatPHP' => 'Joomla\Registry\Format\Php',
+			'JRegistryFormatXML' => 'Joomla\Registry\Format\Xml',
+
+		]
+	);
 };

@@ -43,7 +43,7 @@ class Rector extends Collect
 				$lines = "";
 				foreach ($map as $old => $new)
 				{
-					$lines .= sprintf("\t\t\t\t\t'%s' => '%s',\n", ltrim($old, '\\'), ltrim($new, '\\'));
+					$lines .= sprintf("\t\t\t'%s' => '%s',\n", ltrim($old, '\\'), ltrim($new, '\\'));
 				}
 				$lines = trim($lines);
 
@@ -57,29 +57,23 @@ class Rector extends Collect
 
 declare(strict_types=1);
 
+use Rector\Config\RectorConfig;
 use Rector\Renaming\Rector\Name\RenameClassRector;
-use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 
 /**
- * Rector 0.8/0.9 configuration for converting legacy Joomla! classes to namespaced ones, compatible with Joomla! {$major}.{$minor}
+ * Rector 0.14 configuration for converting legacy Joomla! classes to namespaced ones, compatible with Joomla! {$major}.{$minor}
  */
-return static function (ContainerConfigurator \$containerConfigurator): void {
-    \$services = \$containerConfigurator->services();
+return static function (RectorConfig \$rectorConfig): void {
+	\$rectorConfig->ruleWithConfiguration(
+		RenameClassRector::class,
+		[
 
-    \$services->defaults()
-        ->autowire()
-        ->public()
-        ->autoconfigure();
-
-	\$services->set(RenameClassRector::class)
-		->call('configure', [
-			[
-				RenameClassRector::OLD_TO_NEW_CLASSES => [
 {$lines}
-				],
-			]
-		]);
+
+		]
+	);
 };
+
 PHP;
 
 				file_put_contents($folder . '/' . $fileName, $php);

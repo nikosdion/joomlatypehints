@@ -11,7 +11,7 @@
     }
   ],
   "require": {
-    "php": "^7.0",
+    "php": "^7.0 | ^8.0",
     "guzzlehttp/guzzle": "^6.3.0",
     "nikic/php-parser": "^4.0@dev",
     "mnapoli/silly": "^1.6"

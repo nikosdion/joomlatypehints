@@ -1,3 +1,11 @@
+# 🌊 Goodbye, and thanks for all the fish! 🐬
+
+Joomla! 3.10/4.0 was when the last few non-namespaced Joomla! core classes were replaced by namespaced equivalents.
+
+Joomla! 5 marked the end of built-in support for non-namespaced Joomla! core classes, with optional compatibility offered through the Behaviour - Backward Compatibility plugin.
+
+The time to complete your transition to namespaced classes lapsed in October 2023 with the release of Joomla! 5.0. If you still have not done that, you can still use the Rector helpers in this repo to make your Joomla! 4 software compatible with Joomla! 5 and later. But since there are no more legacy classes to migrate, this repository no longer serves any practical purpose and is archived as of end July 2024.
+
 # TypeHint Helper for Joomla!
 
 Generate code type hints for deprecated core Joomla! API classes
